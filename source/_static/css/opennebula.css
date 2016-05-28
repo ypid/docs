@@ -3,3 +3,27 @@
 .wy-nav-content {
     max-width: 1140px;
 }
+
+body {
+    color: #353735;
+}
+
+a {
+    color: #0098c3;
+}
+
+.rst-versions {
+    background-color: #353735;
+    border-top: 0;
+}
+
+
+.wy-side-nav-search {
+    background-color: #0098c3;
+}
+
+.wy-nav-side {
+    background-color: #353735;
+}
+
+
