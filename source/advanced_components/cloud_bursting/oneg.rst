@@ -4,18 +4,51 @@
 OpenNebula hybrid Driver
 ================================================================================
 
-Description
+Considerations & Limitations
+================================================================================
+..
+    Incude here a description of the limitaions compared to the local OpenNebula cloud this may include but not limited to:
+    - Operations on VMs
+    - Defintion of VMs based on remote templates, what can be added to the template anything, nothing?
+    - Context
+    - Monitoring states differences
+
+..
+   Side notes:
+     - How do you define the local templates? Do we need to know before hand the template id?
+
+Prerequisites
 ================================================================================
 
-Cloud bursting is a model in which the local resources of a Private Cloud are combined with resources from remote Cloud providers. This driver offers the possibility to implement Cloud bursting by deploying Virtual Machines seamlessly on a remote OpenNebula installation.
+..
+  Move to this section all the requirements needed (e.g. remote account, templates etc)
+  Include how to test, ex. use onetemplate list with -endpoint -user and -password
 
 OpenNebula Configuration
 ================================================================================
 
+..
+  Include in this section the local OpenNebula configuration
+  Add CLI instrunctios, show a new host (onhost create and onehost show)
+
+
+
+OpenNebula to OpenNebula  Specific Template Attributes
+================================================================================
+
+..
+  Describe here how to add the template for OpenNebula 2 OpenNebula and supported attributes
+    Add subsections to specific parameters if needed
+
+
+
+
+
+
 Configure the remote OpenNebula
 --------------------------------------------------------------------------------
 
-Ask the remote OpenNebula administrator to create a new user for you. This user should have access to VM Templates ready to be instantiated.
+Ask the remote OpenNebula administrator to create a new user for you. This user should have access to the VM Templates that you are going to be exposed to the local OpenNebula cloud.
 
 Configure the local Host
 --------------------------------------------------------------------------------
@@ -33,6 +66,9 @@ Add a new attributes within local host template:
         CPU=0,
         MEMORY=0
     ]
+..
+   Add a table describing all the parameters
+   Do we need to modify oned.conf?
 
 Capacity is taken from the user and group quotas of the remote OpenNebula user. Alternatively, you can set a hard limit here
 
