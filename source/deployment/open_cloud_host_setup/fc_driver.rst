@@ -155,3 +155,54 @@ Unlike qemu-KVM which do manage automatically the tap devices requires for VM ne
 
 .. note:: Execute the ``cp`` commands for every networking driver which is going to be used with MicroVMs.
 
+Usage
+================================================================================
+
+MicroVM Template
+-----------------------
+
+Below there is defined a minimum microVM Template:
+
+.. code::
+
+    CONTEXT=[
+    NETWORK="YES",
+    SSH_PUBLIC_KEY="$USER[SSH_PUBLIC_KEY]" ]
+    CPU="1"
+    DISK=[
+    IMAGE="Alpine Linux 3.11",
+    IMAGE_UNAME="oneadmin" ]
+    GRAPHICS=[
+    LISTEN="0.0.0.0",
+    TYPE="VNC" ]
+    MEMORY="146"
+    MEMORY_UNIT_COST="MB"
+    NIC=[
+    NETWORK="vnet",
+    NETWORK_UNAME="oneadmin",
+    SECURITY_GROUPS="0" ]
+    OS=[
+    BOOT="",
+    KERNEL_CMD="console=ttyS0 reboot=k panic=1 pci=off i8042.noaux i8042.nomux i8042.nopnp i8042.dumbkbd",
+    KERNEL_DS="$FILE[IMAGE_ID=2]"]
+    VCPU="2"
+
+Unlike VMs for microVMs the ``OS`` sections need to contains a ``KERNEL_DS`` attribute referencing a linux kernel from a File & Kernel datastore:
+
+.. code::
+
+    OS=[
+    BOOT="",
+    KERNEL_CMD="console=ttyS0 reboot=k panic=1 pci=off i8042.noaux i8042.nomux i8042.nopnp i8042.dumbkbd",
+    KERNEL_DS="$FILE[IMAGE_ID=2]"]
+
+VNC
+-----------------------
+
+As VMs and containers, MicroVMs supports VNC access which allows easy access to microVMs. It is configured the same way it's done for VMs and containers. The following section must be added to the microVM template:
+
+.. code::
+
+    GRAPHICS=[
+    LISTEN="0.0.0.0",
+    TYPE="VNC" ]
