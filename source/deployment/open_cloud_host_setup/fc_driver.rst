@@ -17,11 +17,23 @@ Considerations & Limitations
 microVM CPU usage
 --------------------------------------------------------------------------------
 
-CPU limitation is not available for microVMs as they are intended o be used to manage serverless loads the CPU usage limitation is not supported by Firecracker. This means that the CPU available will be evenly distributed among all the microVM.
+There are three main limitation regarding CPU usage for microVM:
 
-OpenNebula deploys microVM by using `Firecracker's Jailer <https://github.com/firecracker-microvm/firecracker/blob/master/docs/jailer.md>`__. The `jailer` takes care of increasing the security and isolation of the microVM and is the Firecracker recommended way fo deploying microVMs in production environments. The jailer force the microVM to be isolated in a NUMA node, OpenNebula takes care of evenly distribute microVMs among the available NUMA nodes.
+- CPU limitation is not available for microVMs. As they are intended o be used to manage serverless loads, the CPU usage limitation is not supported by Firecracker. This means that the available CPU will be evenly distributed among all the microVM.
+
+- OpenNebula deploys microVMs by using `Firecracker's Jailer <https://github.com/firecracker-microvm/firecracker/blob/master/docs/jailer.md>`__. The `jailer` takes care of increasing the security and isolation of the microVM and is the Firecracker recommended way for deploying microVMs in production environments. The jailer force the microVM to be isolated in a NUMA node, OpenNebula takes care of evenly distribute microVMs among the available NUMA nodes.
 
 .. note:: Currently Firecracker only support the isolation at NUMA level so OpenNebula NUMA & CPU pinning options are not available for Firecracker microVMs.
+
+- Firecracker microVMs support hyperthreading but in a very specific way, when hyperthreading is enabled the number of threads per core will be always 2 (i.e if `VCPU = 8` the VM will have 4 cores with 2 threads each). In order to enable hyperthreading for microVM the ``TOPOLOGY/THREADS`` value can be used in the microVM template as shown below:
+
+.. code::
+
+    TOPOLOGY = [
+        CORES = "4",
+        PIN_POLICY = "NONE",
+        SOCKETS = "1",
+        THREADS = "2" ]
 
 MicroVM actions
 --------------------------------------------------------------------------------
