@@ -21,7 +21,10 @@ There are three main limitation regarding CPU usage for microVM:
 
 - CPU limitation is not available for microVMs. As they are intended o be used to manage serverless loads, the CPU usage limitation is not supported by Firecracker. This means that the available CPU will be evenly distributed among all the microVM.
 
-- OpenNebula deploys microVMs by using `Firecracker's Jailer <https://github.com/firecracker-microvm/firecracker/blob/master/docs/jailer.md>`__. The `jailer` takes care of increasing the security and isolation of the microVM and is the Firecracker recommended way for deploying microVMs in production environments. The jailer force the microVM to be isolated in a NUMA node, OpenNebula takes care of evenly distribute microVMs among the available NUMA nodes.
+- OpenNebula deploys microVMs by using `Firecracker's Jailer <https://github.com/firecracker-microvm/firecracker/blob/master/docs/jailer.md>`__. The `jailer` takes care of increasing the security and isolation of the microVM and is the Firecracker recommended way for deploying microVMs in production environments. The jailer force the microVM to be isolated in a NUMA node, OpenNebula takes care of evenly distribute microVMs among the available NUMA nodes. One of the following policies can be selected in ``/var/lib/one/remotes/etc/vmm/firecracker/firecrackerrc``:
+
+   - ``rr``: schedule the microVMs in a RR way across NUMA nodes based on the VM id.
+   - ``random``: schedule the microVMs randomly across NUMA nodes.
 
 .. note:: Currently Firecracker only support the isolation at NUMA level so OpenNebula NUMA & CPU pinning options are not available for Firecracker microVMs.
 
