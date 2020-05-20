@@ -17,7 +17,9 @@ OpenNebula 5.12 (Firework) is the seventh stable release of the OpenNebula 5 ser
 
 There are plenty of very nice perks! The highlights of “Firework” are:
 
-- The `much-announced <https://opennebula.io/opennebula-firecracker-building-the-future-of-on-premises-serverless-computing/>`__ **integration with Firecracker for supporting innovative serverless deployments**. Firecracker is a virtual machine manager widely used by Amazon Web Services (AWS) and designed for managing lots of tiny virtual machines (*micro-VMs*) on a server. Here you can couple the security of traditional VMs with the agility of containers, combining different workloads on the same OpenNebula instance.
+- The `much-announced integration <https://opennebula.io/opennebula-firecracker-building-the-future-of-on-premises-serverless-computing/>`_ with **Firecracker** for supporting innovative serverless deployments. Firecracker is a virtual machine manager widely used by Amazon Web Services (AWS) and designed for managing lots of tiny virtual machines (micro-VMs) on a server. Here you can couple the security of traditional VMs with the agility of containers, combining different workloads on the same OpenNebula instance.
+
+- It also brings seamless integration with the **Docker Hub Marketplace**, permitting direct execution of Docker Hub images using KVM/LXD/Firecracker hypervisors in your OpenNebula cloud. This brings all of the current application container management right square in-line with OpenNebula. 
 
 - **New monitoring subsystem**, able to **scale to thousands of physical hosts and tens of thousands of VMs** and better **support hypervisors at cloud/edge locations and HA deployments**. This re-design decouples DB access for monitoring and VM/Host data to improve *oned* response time and overall monitor processing time. Additionally, the host monitor agents have been improved to better report VM state changes and optimize network usage.
 
@@ -93,7 +95,7 @@ Disaggregated Data Centers
 
 OneFlow & OneGate
 ===============================================================================
-- The OneFlow component has been revamped to improve its performance. This revamp has been made in terms of elapsed time, so we have reduced a lot of the time that each operations consumes. The API is the same as it was before. Click :ref:`here <appflow_use_cli>` to check more information about this component.
+- The OneFlow component has been revamped to improve its performance. This revamp has been made in terms of elapsed time, so we have reduced a lot of the time that each operation consumes. The API is the same as it was before. Click :ref:`here <appflow_use_cli>` to check more information about this component.
 - **OneFlow template** can be :ref:`cloned <service_clone>`, optionally in a recursive fashion so all the VM Templates and images are cloned, as well.
 - OneFlow sched actions at service level. Refer to :ref:`this <flow_sched>` for more information.
 - Now with OneGate you can update template with string with white spaces. Check more information about OneGate :ref:`here <onegate_usage>`.
