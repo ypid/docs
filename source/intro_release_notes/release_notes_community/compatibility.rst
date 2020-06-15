@@ -17,7 +17,7 @@ In the new OneFlow server, the state **poweroff** sets the service state to **wa
 MySQL Backend
 =============
 
-MySQL can be configured to use the BINARY clause in SELECT operations. This make object names to be case sensitive (as sqlite or PostgreSQL). The default behavior is to **not** use this feature to be backward compatible. Note that if you are using LDAP or AD as authentication backends this feature is not recommended.
+MySQL can be configured to use the BINARY clause in SELECT operations. This makes object names to be case sensitive (as sqlite or PostgreSQL). The default behavior is to **not** use this feature to be backward compatible. Note that if you are using LDAP or AD as authentication backends this feature is not recommended.
 
 SQLite Backend
 ==============
@@ -43,7 +43,7 @@ The monitoring system has been redesigned to improve its scalability and to bett
   - ``/HOST/TEMPLATE/[NETRX, NETTX]`` was moved to monitoring object ``/MONITORING/SYSTEM/[NETRX, NETTX]``
 
 - No monitor information is sent in listing API call, neither hosts nor VMs.
-- Configuration of monitoring probes and parameters has been moved to its own file, you may need to adapt/migrate your custom modifications from ``oned.conf`` to ``monitord.conf``.
+- Configuration of monitoring probes and parameters has been moved to its own file. You may need to adapt/migrate your custom modifications from ``oned.conf`` to ``monitord.conf``.
 - The monitoring system now may use TCP transport. You'll need to open incoming connections to port 4124 and TCP to the front-end, in addition to the UDP one.
 
 Accounting and Showback
