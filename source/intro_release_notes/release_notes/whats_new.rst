@@ -21,6 +21,7 @@ OpenNebula Core
 - Add support for document encrypted attributes, check :ref:`this <encrypted_attrs>` for more information.
 - `VM terminate, poweroff and undeploy hard overrides their soft counterpart <https://github.com/OpenNebula/one/issues/2586>`__.
 - `AR inherits IPAM_MAD from VNET <https://github.com/OpenNebula/one/issues/2593>`__.
+- `Fix crash and speed up oneshowback calculate <https://github.com/OpenNebula/one/issues/5020>`__.
 
 Storage
 ================================================================================
