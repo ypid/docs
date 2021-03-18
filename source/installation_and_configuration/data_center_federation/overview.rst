@@ -36,8 +36,3 @@ Before reading this chapter make sure you have read the :ref:`Deployment Guide <
 Read the :ref:`Federation Configuration <federationconfig>` section to learn how to setup a federation, and the :ref:`Federation Management <federationmng>` section to learn how to manage zones in OpenNebula.
 
 After reading this chapter, you can continue configuring more :ref:`Advanced Components <advanced_components>`.
-
-Hypervisor Compatibility
-================================================================================
-
-This chapter applies both to KVM and vCenter.
